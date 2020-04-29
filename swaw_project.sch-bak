@@ -356,10 +356,10 @@ F 3 "" H 2900 1400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L pspice:C C1
+L pspice:C C?
 U 1 1 5EAAE5D6
 P 2900 1150
-F 0 "C1" H 3078 1196 50  0000 L CNN
+F 0 "C?" H 3078 1196 50  0000 L CNN
 F 1 "C" H 3078 1105 50  0000 L CNN
 F 2 "" H 2900 1150 50  0001 C CNN
 F 3 "~" H 2900 1150 50  0001 C CNN
@@ -427,6 +427,17 @@ Wire Wire Line
 	3600 2350 4600 2350
 Wire Wire Line
 	1650 1950 2200 1950
+$Comp
+L power:GND #PWR?
+U 1 1 5EADDA2B
+P 2200 2050
+F 0 "#PWR?" H 2200 1800 50  0001 C CNN
+F 1 "GND" H 2205 1877 50  0000 C CNN
+F 2 "" H 2200 2050 50  0001 C CNN
+F 3 "" H 2200 2050 50  0001 C CNN
+	1    2200 2050
+	1    0    0    -1  
+$EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5EADDE16
@@ -523,9 +534,4 @@ Wire Wire Line
 Connection ~ 5250 2700
 Wire Wire Line
 	5250 2700 5250 1850
-Wire Wire Line
-	2200 2050 1950 2050
-Wire Wire Line
-	1950 2050 1950 2350
-Connection ~ 1950 2350
 $EndSCHEMATC
