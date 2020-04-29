@@ -300,12 +300,23 @@ Wire Notes Line
 $Comp
 L Sensor_Motion:MPU-6050 U?
 U 1 1 5EA88EF4
-P 2900 2150
-F 0 "U?" H 2900 1361 50  0000 C CNN
-F 1 "MPU-6050" H 2900 1270 50  0000 C CNN
-F 2 "Sensor_Motion:InvenSense_QFN-24_4x4mm_P0.5mm" H 2900 1350 50  0001 C CNN
-F 3 "https://store.invensense.com/datasheets/invensense/MPU-6050_DataSheet_V3%204.pdf" H 2900 2000 50  0001 C CNN
-	1    2900 2150
+P 2700 2050
+F 0 "U?" H 2700 1261 50  0000 C CNN
+F 1 "MPU-6050" H 2700 1170 50  0000 C CNN
+F 2 "Sensor_Motion:InvenSense_QFN-24_4x4mm_P0.5mm" H 2700 1250 50  0001 C CNN
+F 3 "https://store.invensense.com/datasheets/invensense/MPU-6050_DataSheet_V3%204.pdf" H 2700 1900 50  0001 C CNN
+	1    2700 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L swaw_project-cache:Bluetooth_HC-05 B:HC-05?
+U 1 1 5EAA6265
+P 5000 2400
+F 0 "B:HC-05?" H 5200 3315 50  0000 C CNN
+F 1 "Bluetooth_HC-05" H 5200 3224 50  0000 C CNN
+F 2 "" H 5000 2400 50  0001 C CNN
+F 3 "" H 5000 2400 50  0001 C CNN
+	1    5000 2400
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

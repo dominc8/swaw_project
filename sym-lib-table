@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name swaw_project-cache)(type Legacy)(uri ${KIPRJMOD}/swaw_project-cache.lib)(options "")(descr ""))
+)
