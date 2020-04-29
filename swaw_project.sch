@@ -258,13 +258,9 @@ Wire Wire Line
 Wire Wire Line
 	10200 1400 10550 1400
 Wire Wire Line
-	10200 1300 10550 1300
-Wire Wire Line
 	10200 1200 10550 1200
 Wire Wire Line
-	10200 3000 10550 3000
-Wire Wire Line
-	10200 2900 10550 2900
+	10200 3000 10400 3000
 Wire Wire Line
 	10200 2800 10550 2800
 Wire Wire Line
@@ -284,7 +280,7 @@ Wire Wire Line
 Wire Wire Line
 	9300 2100 9300 2200
 Wire Wire Line
-	9300 2200 9300 3150
+	9300 2200 9300 2400
 Wire Notes Line
 	8500 500  8500 3450
 Wire Notes Line
@@ -300,23 +296,317 @@ Wire Notes Line
 $Comp
 L Sensor_Motion:MPU-6050 U?
 U 1 1 5EA88EF4
-P 2700 2050
-F 0 "U?" H 2700 1261 50  0000 C CNN
-F 1 "MPU-6050" H 2700 1170 50  0000 C CNN
-F 2 "Sensor_Motion:InvenSense_QFN-24_4x4mm_P0.5mm" H 2700 1250 50  0001 C CNN
-F 3 "https://store.invensense.com/datasheets/invensense/MPU-6050_DataSheet_V3%204.pdf" H 2700 1900 50  0001 C CNN
-	1    2700 2050
+P 2900 2150
+F 0 "U?" H 2900 1361 50  0000 C CNN
+F 1 "MPU-6050" H 2900 1270 50  0000 C CNN
+F 2 "Sensor_Motion:InvenSense_QFN-24_4x4mm_P0.5mm" H 2900 1350 50  0001 C CNN
+F 3 "https://store.invensense.com/datasheets/invensense/MPU-6050_DataSheet_V3%204.pdf" H 2900 2000 50  0001 C CNN
+	1    2900 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 1350 3000 1450
+Wire Wire Line
+	4450 1350 4450 900 
+Wire Wire Line
+	4450 900  2900 900 
+Wire Wire Line
+	2800 900  2800 1450
+Wire Wire Line
+	4450 1350 3900 1350
+$Comp
+L pspice:C C2
+U 1 1 5EAADD7B
+P 3900 1600
+F 0 "C2" H 4078 1646 50  0000 L CNN
+F 1 "0.1uF" H 4078 1555 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Axial_L11.0mm_D6.0mm_P18.00mm_Horizontal" H 3900 1600 50  0001 C CNN
+F 3 "~" H 3900 1600 50  0001 C CNN
+	1    3900 1600
+	1    0    0    -1  
+$EndComp
+Connection ~ 3900 1350
+Wire Wire Line
+	3900 1350 3000 1350
+Connection ~ 2900 900 
+Wire Wire Line
+	2900 900  2800 900 
+$Comp
+L power:GND #PWR?
+U 1 1 5EAAFEC1
+P 3900 1850
+F 0 "#PWR?" H 3900 1600 50  0001 C CNN
+F 1 "GND" H 3905 1677 50  0000 C CNN
+F 2 "" H 3900 1850 50  0001 C CNN
+F 3 "" H 3900 1850 50  0001 C CNN
+	1    3900 1850
 	1    0    0    -1  
 $EndComp
 $Comp
-L swaw_project-cache:Bluetooth_HC-05 B:HC-05?
-U 1 1 5EAA6265
-P 5000 2400
-F 0 "B:HC-05?" H 5200 3315 50  0000 C CNN
-F 1 "Bluetooth_HC-05" H 5200 3224 50  0000 C CNN
-F 2 "" H 5000 2400 50  0001 C CNN
-F 3 "" H 5000 2400 50  0001 C CNN
-	1    5000 2400
+L power:GND #PWR?
+U 1 1 5EAB0D0F
+P 2900 1400
+F 0 "#PWR?" H 2900 1150 50  0001 C CNN
+F 1 "GND" H 2905 1227 50  0000 C CNN
+F 2 "" H 2900 1400 50  0001 C CNN
+F 3 "" H 2900 1400 50  0001 C CNN
+	1    2900 1400
 	1    0    0    -1  
 $EndComp
+$Comp
+L pspice:C C1
+U 1 1 5EAAE5D6
+P 2900 1150
+F 0 "C1" H 3078 1196 50  0000 L CNN
+F 1 "10nF" H 3078 1105 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Axial_L11.0mm_D6.0mm_P18.00mm_Horizontal" H 2900 1150 50  0001 C CNN
+F 3 "~" H 2900 1150 50  0001 C CNN
+	1    2900 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EABDA5F
+P 2900 2850
+F 0 "#PWR?" H 2900 2600 50  0001 C CNN
+F 1 "GND" H 2905 2677 50  0000 C CNN
+F 2 "" H 2900 2850 50  0001 C CNN
+F 3 "" H 2900 2850 50  0001 C CNN
+	1    2900 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:C C4
+U 1 1 5EABDDAD
+P 4600 2600
+F 0 "C4" H 4778 2646 50  0000 L CNN
+F 1 "2.2nF" H 4778 2555 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Axial_L11.0mm_D6.0mm_P18.00mm_Horizontal" H 4600 2600 50  0001 C CNN
+F 3 "~" H 4600 2600 50  0001 C CNN
+	1    4600 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:C C3
+U 1 1 5EABE241
+P 3900 2700
+F 0 "C3" H 4078 2746 50  0000 L CNN
+F 1 "0.1uF" H 4078 2655 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Axial_L11.0mm_D6.0mm_P18.00mm_Horizontal" H 3900 2700 50  0001 C CNN
+F 3 "~" H 3900 2700 50  0001 C CNN
+	1    3900 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 2450 3600 2450
+$Comp
+L power:GND #PWR?
+U 1 1 5EAC0805
+P 3900 2950
+F 0 "#PWR?" H 3900 2700 50  0001 C CNN
+F 1 "GND" H 3905 2777 50  0000 C CNN
+F 2 "" H 3900 2950 50  0001 C CNN
+F 3 "" H 3900 2950 50  0001 C CNN
+	1    3900 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EAC0AA7
+P 4600 2850
+F 0 "#PWR?" H 4600 2600 50  0001 C CNN
+F 1 "GND" H 4605 2677 50  0000 C CNN
+F 2 "" H 4600 2850 50  0001 C CNN
+F 3 "" H 4600 2850 50  0001 C CNN
+	1    4600 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2350 4600 2350
+Wire Wire Line
+	1650 1950 2200 1950
+$Comp
+L power:GND #PWR?
+U 1 1 5EADDE16
+P 1950 2550
+F 0 "#PWR?" H 1950 2300 50  0001 C CNN
+F 1 "GND" H 1955 2377 50  0000 C CNN
+F 2 "" H 1950 2550 50  0001 C CNN
+F 3 "" H 1950 2550 50  0001 C CNN
+	1    1950 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 2350 1950 2450
+Wire Wire Line
+	1950 2350 2200 2350
+Wire Wire Line
+	2200 2450 1950 2450
+Connection ~ 1950 2450
+Wire Wire Line
+	1950 2450 1950 2550
+Wire Wire Line
+	9150 1450 9150 900 
+Connection ~ 9150 1450
+Connection ~ 4450 900 
+$Comp
+L Device:R R2
+U 1 1 5EAF0777
+P 5700 1700
+F 0 "R2" H 5770 1746 50  0000 L CNN
+F 1 "10kΩ" H 5770 1655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" V 5630 1700 50  0001 C CNN
+F 3 "~" H 5700 1700 50  0001 C CNN
+	1    5700 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5EAE7C24
+P 5250 1700
+F 0 "R1" H 5320 1746 50  0000 L CNN
+F 1 "10kΩ" H 5320 1655 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" V 5180 1700 50  0001 C CNN
+F 3 "~" H 5250 1700 50  0001 C CNN
+	1    5250 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 900  5250 900 
+Wire Wire Line
+	5250 1550 5250 900 
+Connection ~ 5250 900 
+Wire Wire Line
+	5250 900  5700 900 
+Wire Wire Line
+	5700 1550 5700 900 
+Connection ~ 5700 900 
+Wire Wire Line
+	5700 900  9150 900 
+Wire Wire Line
+	10200 1300 10700 1300
+Wire Wire Line
+	2200 1850 1450 1850
+Wire Wire Line
+	1450 1850 1450 4050
+Wire Wire Line
+	1450 4050 5250 4050
+Wire Wire Line
+	5250 4050 5250 2700
+Wire Wire Line
+	1650 1950 1650 3900
+Wire Wire Line
+	1650 3900 5700 3900
+Wire Wire Line
+	5700 3900 5700 2000
+Wire Wire Line
+	10550 1200 10550 950 
+Wire Wire Line
+	10550 950  6450 950 
+Wire Wire Line
+	6450 950  6450 2000
+Wire Wire Line
+	6450 2000 5700 2000
+Connection ~ 5700 2000
+Wire Wire Line
+	5700 2000 5700 1850
+Wire Wire Line
+	10700 1300 10700 1050
+Wire Wire Line
+	10700 1050 6600 1050
+Wire Wire Line
+	6600 1050 6600 2700
+Wire Wire Line
+	6600 2700 5250 2700
+Connection ~ 5250 2700
+Wire Wire Line
+	5250 2700 5250 1850
+Wire Wire Line
+	2200 2050 1950 2050
+Wire Wire Line
+	1950 2050 1950 2350
+Connection ~ 1950 2350
+$Comp
+L Relay:Bluetooh_PIO HC-05_PIO?
+U 1 1 5EAA8D5B
+P 10650 5000
+F 0 "HC-05_PIO?" H 10717 5823 50  0000 C CNN
+F 1 "Bluetooh_PIO" H 10800 5800 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 10650 5000 50  0001 C CNN
+F 3 "" H 10650 5000 50  0001 C CNN
+	1    10650 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5EAB7768
+P 10150 4150
+F 0 "R3" H 10220 4196 50  0000 L CNN
+F 1 "2kΩ" H 10220 4105 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" V 10080 4150 50  0001 C CNN
+F 3 "~" H 10150 4150 50  0001 C CNN
+	1    10150 4150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5EAB9AFC
+P 10400 3900
+F 0 "R4" H 10470 3946 50  0000 L CNN
+F 1 "1kΩ" H 10470 3855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P15.24mm_Horizontal" V 10330 3900 50  0001 C CNN
+F 3 "~" H 10400 3900 50  0001 C CNN
+	1    10400 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10200 2900 10500 2900
+Wire Wire Line
+	10500 4850 7900 4850
+Wire Wire Line
+	7900 4850 7900 1350
+Wire Wire Line
+	7900 1350 9050 1350
+Connection ~ 9050 1350
+Wire Wire Line
+	8000 4750 8000 2400
+Wire Wire Line
+	8000 2400 9300 2400
+Connection ~ 9300 2400
+Wire Wire Line
+	9300 2400 9300 3150
+Wire Wire Line
+	10500 4550 10400 4550
+Wire Wire Line
+	10400 4550 10400 4150
+Wire Wire Line
+	10400 3750 10400 3000
+Connection ~ 10400 3000
+Wire Wire Line
+	10400 3000 10550 3000
+Wire Wire Line
+	10400 4150 10300 4150
+Connection ~ 10400 4150
+Wire Wire Line
+	10400 4150 10400 4050
+Wire Wire Line
+	10500 4750 9850 4750
+Wire Wire Line
+	10000 4150 9850 4150
+Wire Wire Line
+	9850 4150 9850 4750
+Connection ~ 9850 4750
+Wire Wire Line
+	9850 4750 8000 4750
+Wire Wire Line
+	10500 4650 9650 4650
+Wire Wire Line
+	9650 4650 9650 3600
+Wire Wire Line
+	9650 3600 10500 3600
+Wire Wire Line
+	10500 3600 10500 2900
+Connection ~ 10500 2900
+Wire Wire Line
+	10500 2900 10600 2900
 $EndSCHEMATC
