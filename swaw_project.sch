@@ -504,7 +504,7 @@ U 1 1 5EAA8D5B
 P 10650 5000
 F 0 "HC-05_PIO1" H 10717 5823 50  0000 C CNN
 F 1 "Bluetooh_PIO" H 10800 5800 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 10650 5000 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical" H 10650 5000 50  0001 C CNN
 F 3 "" H 10650 5000 50  0001 C CNN
 	1    10650 5000
 	1    0    0    -1  
