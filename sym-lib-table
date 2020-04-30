@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name swaw_project-cache)(type Legacy)(uri ${KIPRJMOD}/swaw_project-cache.lib)(options "")(descr ""))
+  (lib (name swaw_project-rescue)(type Legacy)(uri ${KIPRJMOD}/swaw_project-rescue.lib)(options "")(descr ""))
 )
