@@ -260,8 +260,6 @@ Wire Wire Line
 Wire Wire Line
 	10200 1200 10550 1200
 Wire Wire Line
-	10200 2800 10550 2800
-Wire Wire Line
 	10200 2700 10550 2700
 Wire Wire Line
 	10200 2600 10550 2600
@@ -464,7 +462,7 @@ U 1 1 5EAB9AFC
 P 9550 4300
 F 0 "R4" H 9620 4346 50  0000 L CNN
 F 1 "1kΩ" H 9620 4255 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 9480 4300 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9480 4300 50  0001 C CNN
 F 3 "~" H 9550 4300 50  0001 C CNN
 	1    9550 4300
 	1    0    0    -1  
@@ -559,14 +557,6 @@ Wire Wire Line
 Wire Wire Line
 	10050 4650 10000 4650
 Wire Wire Line
-	10000 4650 10000 4100
-Wire Wire Line
-	10000 4100 10950 4100
-Wire Wire Line
-	10950 4100 10950 2900
-Wire Wire Line
-	10200 2900 10950 2900
-Wire Wire Line
 	9650 4550 9550 4550
 Wire Wire Line
 	9950 4550 10500 4550
@@ -589,10 +579,6 @@ Wire Wire Line
 Wire Wire Line
 	9550 4150 9550 4000
 Wire Wire Line
-	9550 4000 10850 4000
-Wire Wire Line
-	10850 4000 10850 3000
-Wire Wire Line
 	10200 3000 10850 3000
 $Comp
 L Sensor_Motion:MPU-6050 U1
@@ -612,7 +598,7 @@ L pspice:C C1
 U 1 1 5EAAE5D6
 P 2350 1200
 F 0 "C1" H 2528 1246 50  0000 L CNN
-F 1 "110nF" H 2528 1155 50  0000 L CNN
+F 1 "10nF" H 2528 1155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2350 1200 50  0001 C CNN
 F 3 "~" H 2350 1200 50  0001 C CNN
 	1    2350 1200
@@ -645,7 +631,7 @@ Wire Wire Line
 Connection ~ 3900 1350
 Connection ~ 4350 900 
 Wire Wire Line
-	4350 900  5250 900 
+	4350 900  4650 900 
 Connection ~ 5600 900 
 Wire Wire Line
 	5600 900  6050 900 
@@ -745,4 +731,45 @@ Wire Wire Line
 Wire Wire Line
 	8250 2250 7000 2250
 Connection ~ 7000 2250
+$Comp
+L power:GND #PWR011
+U 1 1 5EACA0F8
+P 4650 1450
+F 0 "#PWR011" H 4650 1200 50  0001 C CNN
+F 1 "GND" H 4655 1277 50  0000 C CNN
+F 2 "" H 4650 1450 50  0001 C CNN
+F 3 "" H 4650 1450 50  0001 C CNN
+	1    4650 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:C C5
+U 1 1 5EACB41C
+P 4650 1200
+F 0 "C5" H 4828 1246 50  0000 L CNN
+F 1 "1uF" H 4828 1155 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4650 1200 50  0001 C CNN
+F 3 "~" H 4650 1200 50  0001 C CNN
+	1    4650 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 900  4650 950 
+Connection ~ 4650 900 
+Wire Wire Line
+	4650 900  5250 900 
+Wire Wire Line
+	11000 4000 11000 2900
+Wire Wire Line
+	9550 4000 11000 4000
+Wire Wire Line
+	10200 2900 11000 2900
+Wire Wire Line
+	10850 3000 10850 3950
+Wire Wire Line
+	10850 3950 10000 3950
+Wire Wire Line
+	10000 3950 10000 4650
+Wire Wire Line
+	10200 2800 10550 2800
 $EndSCHEMATC
