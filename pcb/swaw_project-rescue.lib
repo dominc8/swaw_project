@@ -19,4 +19,22 @@ X VCC 6 -150 150 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
+# Bluetooh_PIO-Relay-swaw_project-rescue
+#
+DEF Bluetooh_PIO-Relay-swaw_project-rescue HC-05_PIO 0 40 Y Y 1 F N
+F0 "HC-05_PIO" 137 0 50 H V C CNN
+F1 "Bluetooh_PIO-Relay-swaw_project-rescue" 150 800 50 H I C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -50 750 300 50 0 1 0 N
+X LED 1 -150 650 100 R 50 50 1 1 O
+X KEY 2 -150 550 100 R 50 50 1 1 U
+X RXD 3 -150 450 100 R 50 50 1 1 I
+X TXD 4 -150 350 100 R 50 50 1 1 O
+X GND 5 -150 250 100 R 50 50 1 1 P
+X VCC 6 -150 150 100 R 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
 #End Library
