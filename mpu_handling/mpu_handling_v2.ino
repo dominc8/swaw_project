@@ -2,6 +2,9 @@
 
 #define MPU6050_ADDR            0x68
 
+//Diode for signaling the transfer
+#define ledPin 7
+
 
 #define MPU6050_CONFIG          0x1A
 #define MPU6050_GYRO_CONFIG     0x1B
@@ -18,6 +21,12 @@
 #define MPU6050_ACCEL_BURST_READ_START  MPU6050_ACCEL_XOUT_H
 #define MPU6050_ACCEL_BURST_READ_SIZE   (MPU6050_ACCEL_YOUT_L - MPU6050_ACCEL_XOUT_H + 1)
 
+
+SoftwareSerial BT(1, 0); 
+// creates a "virtual" serial port/UART
+// connect BT module TX to 0
+// connect BT module RX to 1
+// connect BT Vcc to 5V, GND to GND
 
 struct ConfigMessage
 {
@@ -40,6 +49,10 @@ void setup()
 {
     uint8_t buffer = 0;
     Wire.begin();
+    
+    /* Initialize bluetooth communication */
+    pinMode(ledPin, OUTPUT);
+    BT.begin(38400);
 
     /* Initialize serial communication */
     Serial.begin(38400);
@@ -90,8 +103,12 @@ void loop()
             out_data[1] = y_vel + y_dvel/2;
             x_vel += x_dvel;
             y_vel += y_dvel;
+            
             /* Send data through bluetooth */
-
+            digitalWrite(ledPin, HIGH); // LED ON
+            BT.write(out_data[0]);
+            BT.write(out_data[1]);
+            digitalWrite(ledPin, LOW); // LED Off
         }
     }
 }
