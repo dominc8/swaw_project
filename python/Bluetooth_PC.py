@@ -27,7 +27,7 @@ def calc_to_pixel(x , y, raw_scale, pixel_scale):
     return return_x, return_y
 
 
-device_handler = serial.Serial('COM7', 9600, timeout=1)
+device_handler = serial.Serial('COM7', 38400, timeout=1)
 mouse.FAILSAFE = False
 count = 0
 while count < 100:

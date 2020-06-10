@@ -9,7 +9,7 @@ static int32_t out_data[2];
 void setup()  
 {  
   pinMode(13, OUTPUT);
-  BT.begin(9600);
+  BT.begin(38400);
 }
 void loop() 
 {
