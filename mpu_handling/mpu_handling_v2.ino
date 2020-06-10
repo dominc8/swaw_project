@@ -106,8 +106,8 @@ void loop()
             
             /* Send data through bluetooth */
             digitalWrite(ledPin, HIGH); // LED ON
-            BT.write(out_data[0]);
-            BT.write(out_data[1]);
+            BT.write(255);
+			BT.write((byte*)&out_data[0], 8);
             digitalWrite(ledPin, LOW); // LED Off
         }
     }
