@@ -2,10 +2,6 @@
 
 #define MPU6050_ADDR            0x68
 
-//Diode for signaling the transfer
-#define ledPin 7
-
-
 #define MPU6050_CONFIG          0x1A
 #define MPU6050_GYRO_CONFIG     0x1B
 #define MPU6050_ACCEL_CONFIG    0x1C
@@ -22,17 +18,17 @@
 #define MPU6050_ACCEL_BURST_READ_SIZE   (MPU6050_ACCEL_YOUT_L - MPU6050_ACCEL_XOUT_H + 1)
 
 
-SoftwareSerial BT(1, 0); 
-// creates a "virtual" serial port/UART
-// connect BT module TX to 0
-// connect BT module RX to 1
-// connect BT Vcc to 5V, GND to GND
+#define LED_PIN 7 /* LED for signalling the transfer */
+
+/******************************************************************************/
 
 struct ConfigMessage
 {
     uint8_t address;
     uint8_t value;
 };
+
+/******************************************************************************/
 
 const ConfigMessage config_sequence[] = 
 {
@@ -42,8 +38,11 @@ const ConfigMessage config_sequence[] =
     { MPU6050_ACCEL_CONFIG, 0x08 }, /* 2b, 2g - 16g, 0x18 -> 16g*/
 };
 
-
 volatile uint8_t timer_flag = 0;
+
+SoftwareSerial BT(1, 0); /* creates a "virtual" serial port/UART */
+
+/******************************************************************************/
 
 void setup()
 {
@@ -54,11 +53,7 @@ void setup()
     pinMode(ledPin, OUTPUT);
     BT.begin(38400);
 
-    /* Initialize serial communication */
-    Serial.begin(38400);
-
     /* Initialize device */
-    Serial.println("Initializing I2C devices...");
     /* Power up and set ranges */
     for (uint8_t i = 0; i < sizeof(config_sequence) / sizeof(*config_sequence); ++i)
     {
@@ -66,11 +61,9 @@ void setup()
     }
 
     /* Verify connection */
-    Serial.println("Verifying connection...");
-    I2Cdev::readByte(MPU6050_ADDR, MPU6050_WHO_AM_I, &buffer);
-    if (buffer != MPU6050_ADDR)
+    while (buffer != MPU6050_ADDR)
     {
-        Serial.println("Error! Wrong device address!");
+        I2Cdev::readByte(MPU6050_ADDR, MPU6050_WHO_AM_I, &buffer);
     }
 
     /* Configure 1kHz timer */
@@ -83,7 +76,6 @@ void setup()
     TCCR1B |= (3 << CS10);
     TIMSK1 |= (1 << OCIE1A);
     interrupts();
-
 }
 
 void loop()
@@ -95,7 +87,8 @@ void loop()
     if (timer_flag == 1)
     {
         timer_flag = 0;
-        if (MPU6050_ACCEL_BURST_READ_SIZE == I2Cdev::readBytes(MPU6050_ADDR, MPU6050_ACCEL_BURST_READ_START, MPU6050_ACCEL_BURST_READ_SIZE, buffer))
+        if (MPU6050_ACCEL_BURST_READ_SIZE == I2Cdev::readBytes(MPU6050_ADDR, MPU6050_ACCEL_BURST_READ_START,
+                                                               MPU6050_ACCEL_BURST_READ_SIZE, buffer))
         {
             x_dvel = (int16_t)((((uint16_t)buffer[0]) << 8) + buffer[1]);
             y_dvel = (int16_t)((((uint16_t)buffer[2]) << 8) + buffer[3]);
@@ -107,14 +100,14 @@ void loop()
             /* Send data through bluetooth */
             digitalWrite(ledPin, HIGH); // LED ON
             BT.write(255);
-			BT.write((byte*)&out_data[0], 8);
-            digitalWrite(ledPin, LOW); // LED Off
+            BT.write((byte*)&out_data[0], 8);
+            digitalWrite(ledPin, LOW);  // LED OFF
         }
     }
 }
-
 
 ISR(TIMER1_COMPA_vect)
 {
     timer_flag = 1;
 }
+
